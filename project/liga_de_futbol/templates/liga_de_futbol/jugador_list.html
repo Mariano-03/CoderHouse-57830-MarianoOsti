@@ -1,0 +1,12 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Lista de jugadores 
+{% endblock header %}
+
+{% block main %}  
+    <button><a href="{% url 'jugador_create' %}">Crear Jugador</a></button>
+    {% for object in object_list %}
+        <p>{{ object }}</p>
+    {% endfor %}
+{% endblock main %}

@@ -20,4 +20,10 @@ from liga_de_futbol import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('equipo/list/', views.equipo_list, name="equipo_list"),
+    path('jugador/list/', views.jugador_list, name="jugador_list"),
+    path('estadio/list/', views.estadio_list, name="estadio_list"),
+    path('equipo/create/', views.equipo_create, name="equipo_create"),
+    path('jugador/create/', views.jugador_create, name="jugador_create"),
+    path('estadio/create/', views.estadio_create, name="estadio_create"),
 ]

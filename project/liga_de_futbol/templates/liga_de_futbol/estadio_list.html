@@ -1,11 +1,11 @@
 {% extends 'liga_de_futbol/base.html' %}
 
 {% block header %}
-    Lista de Equipos
+    Lista de estadios 
 {% endblock header %}
 
-{% block main %}  
-    <button><a href="{% url 'equipo_create' %}"> Crear Equipo</a></button>
+{% block main %} 
+    <button><a href="{% url 'estadio_create' %}">Crear estadio</a></button>
     {% for object in object_list %}
         <p>{{ object }}</p>
     {% endfor %}

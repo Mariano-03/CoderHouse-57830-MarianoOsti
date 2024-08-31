@@ -5,7 +5,7 @@ from .models import Equipo, Jugador, Estadio
 class EquipoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'puntos')
     search_fields = ('nombre',)
-    ordering = ('-puntos', 'nombre')
+    ordering = ('nombre',)
 
 @admin.register(Jugador)
 class JugadorAdmin(admin.ModelAdmin):

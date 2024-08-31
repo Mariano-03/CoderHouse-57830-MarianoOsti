@@ -1,0 +1,13 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Agregar jugador a la liga
+{% endblock header %}
+
+{% block main %}  
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"> Guardar</button>
+    </form>
+{% endblock main %} 
