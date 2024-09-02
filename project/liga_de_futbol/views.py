@@ -6,18 +6,26 @@ def index(request):
     return render(request, "liga_de_futbol/index.html")
 
 def equipo_list(request):
-    query = Equipo.objects.all()
-    context = {"object_list": query}
+    query = request.GET.get("q")
+    if query:
+        equipos = Equipo.objects.filter(nombre__icontains=query)
+    else:
+        equipos = Equipo.objects.all()
+    context = {"object_list": equipos}
     return render(request, "liga_de_futbol/equipo_list.html", context)
 
 def jugador_list(request):
-    query = Jugador.objects.all()
-    context = {"object_list": query}
+    query = request.GET.get("q")
+    if query:
+        jugadores = Jugador.objects.filter(nombre__icontains=query)
+    else:
+        jugadores = Jugador.objects.all()
+    context = {"object_list": jugadores}
     return render(request, "liga_de_futbol/jugador_list.html", context)
 
 def estadio_list(request):
-    query = Estadio.objects.all()
-    context = {"object_list": query}
+    estadios = Estadio.objects.all()
+    context = {"object_list": estadios}
     return render(request, "liga_de_futbol/estadio_list.html", context)
 
 def equipo_create(request):

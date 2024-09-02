@@ -6,6 +6,10 @@
 
 {% block main %}  
     <button><a href="{% url 'jugador_create' %}">Crear Jugador</a></button>
+    <form action="{% url 'jugador_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
     {% for object in object_list %}
         <p>{{ object }}</p>
     {% endfor %}
