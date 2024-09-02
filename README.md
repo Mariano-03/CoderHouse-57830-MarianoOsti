@@ -25,6 +25,7 @@ Son los enlaces los cuales redirigen al usuario hacia el apartado de la pagina q
 # Templates
 Forman lo visual de la pagina, lo que se ve en cada apartado.
 
+# Info
 En el proyecto final tengo pensado agregar una tabla de clasificacion, la cual se va a encontrar ordenada por la cantidad de 
 puntos logrados por cada equipo. tambien un apartado en el que se pueda ver el siguiente partido de cada equipo y en 
 que estadio se va a jugar. entre otras cosas que se me vayan ocurriendo.
