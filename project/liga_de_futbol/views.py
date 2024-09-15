@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Equipo, Jugador, Estadio
+from .models import Equipo, Jugador, Estadio, Clasificacion
 from .forms import EquipoForm, JugadorForm, EstadioForm
 
 def index(request):
@@ -10,7 +10,7 @@ def equipo_list(request):
     if query:
         equipos = Equipo.objects.filter(nombre__icontains=query)
     else:
-        equipos = Equipo.objects.all()
+        equipos = Equipo.objects.all().order_by('nombre')
     context = {"object_list": equipos}
     return render(request, "liga_de_futbol/equipo_list.html", context)
 
@@ -67,3 +67,8 @@ def estadio_detail(requqest, pk: int):
     query = Estadio.objects.get(id=pk)
     context = {"object": query}
     return render(requqest, "liga_de_futbol/estadio_detail.html", context)
+
+def clasificacion(request):
+    clasificacion = Equipo.objects.all().order_by('-puntos')
+    context = {"object_list": clasificacion}
+    return render(request, "liga_de_futbol/clasificacion.html", context)

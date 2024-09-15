@@ -1,0 +1,12 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Tabla de clasificacion 
+{% endblock header %}
+
+{% block main %}  
+    {% for object in object_list %}
+        <p>{{ object.nombre }} - {{object.puntos}} puntos</p>
+    {% endfor %}
+    <button><a href="{% url 'index' %}">Volver</a></button>
+{% endblock main %}

@@ -23,3 +23,9 @@ class Estadio(models.Model):
 
     def __str__(self) -> str:
         return f"{self.nombre} con capacidad para {self.capacidad} personas"
+    
+class Clasificacion(models.Model):
+    equipo = models.OneToOneField(Equipo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.equipo.nombre} {self.equipo.puntos}"

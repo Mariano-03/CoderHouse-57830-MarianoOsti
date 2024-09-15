@@ -28,4 +28,5 @@ urlpatterns = [
     path('estadio/list/', views.estadio_list, name="estadio_list"),
     path('estadio/create/', views.estadio_create, name="estadio_create"),
     path('estadio/detail/<int:pk>', views.estadio_detail, name="estadio_detail"),
+    path('clasificacion/', views.clasificacion, name="clasificacion")
 ]
