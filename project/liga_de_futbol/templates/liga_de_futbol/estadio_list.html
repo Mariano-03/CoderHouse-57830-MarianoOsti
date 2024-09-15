@@ -7,6 +7,10 @@
 {% block main %} 
     <button><a href="{% url 'estadio_create' %}">Crear estadio</a></button>
     {% for object in object_list %}
-        <p>{{ object }}</p>
+        <li>
+            {{ object.nombre }} con capacidad para {{ object.capacidad}} personas
+            <a href="{% url 'estadio_detail' object.id %}">Detalle</a>
+        </li>
     {% endfor %}
+    <button><a href="{% url 'index' %}">Volver</a></button>
 {% endblock main %}

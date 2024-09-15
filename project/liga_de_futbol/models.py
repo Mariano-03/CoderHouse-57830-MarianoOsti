@@ -2,7 +2,7 @@ from django.db import models
     
 class Equipo(models.Model):
     nombre = models.CharField(max_length=50, unique=True)
-    puntos = models.CharField(max_length=10)
+    puntos = models.IntegerField()
     
     def __str__(self) -> str:
         return self.nombre

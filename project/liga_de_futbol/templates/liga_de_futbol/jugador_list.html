@@ -11,6 +11,10 @@
         <button type="submit">Buscar</button>
     </form>
     {% for object in object_list %}
-        <p>{{ object }}</p>
+        <li>
+            {{ object.apellido }}, {{ object.nombre }} ({{ object.club }})
+            <a href="{% url 'jugador_detail' object.id %}">Detalle</a>
+        </li>
     {% endfor %}
+    <button><a href="{% url 'index' %}">Volver</a></button>
 {% endblock main %}

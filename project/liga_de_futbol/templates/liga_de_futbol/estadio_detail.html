@@ -1,0 +1,14 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Detalle de jugadores 
+{% endblock header %}
+
+{% block main %} 
+    <ul>
+        <li>Nombre: {{ object.nombre }}</li>
+        <li>Capacidad: {{ object.capacidad}}</li>
+        <li>Descripcion: {{ object.descripcion }}</li>
+    </ul>
+    <button><a href="{% url 'estadio_list' %}">Volver</a></button>
+{% endblock main %}
