@@ -14,6 +14,7 @@
         <li>
             {{ object.apellido }}, {{ object.nombre }} ({{ object.club }})
             <a href="{% url 'jugador_detail' object.id %}">Detalle</a>
+            <a href="{% url 'jugador_update' object.id %}">Editar</a>
         </li>
     {% endfor %}
     <button><a href="{% url 'index' %}">Volver</a></button>

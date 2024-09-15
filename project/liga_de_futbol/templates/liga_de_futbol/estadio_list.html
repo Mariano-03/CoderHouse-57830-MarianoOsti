@@ -10,6 +10,7 @@
         <li>
             {{ object.nombre }} con capacidad para {{ object.capacidad}} personas
             <a href="{% url 'estadio_detail' object.id %}">Detalle</a>
+            <a href="{% url 'estadio_update' object.id %}">Editar</a>
         </li>
     {% endfor %}
     <button><a href="{% url 'index' %}">Volver</a></button>

@@ -24,6 +24,17 @@ def equipo_create(request):
             return redirect("equipo_list")
     return render(request, "liga_de_futbol/equipo_create.html", {"form": form})
 
+def equipo_update(request, pk):
+    query = Equipo.objects.get(id=pk)
+    if request.method == "GET":
+        form = EquipoForm(instance=query)
+    if request.method == "POST":
+        form = EquipoForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect("equipo_list")
+    return render(request, "liga_de_futbol/equipo_create.html", {"form": form})
+
 def jugador_list(request):
     query = request.GET.get("q")
     if query:
@@ -48,6 +59,17 @@ def jugador_detail(request, pk: int):
     context = {"object": query}
     return render(request, "liga_de_futbol/jugador_detail.html", context)
 
+def jugador_update(request, pk):
+    query = Jugador.objects.get(id=pk)
+    if request.method == "GET":
+        form = JugadorForm(instance=query)
+    if request.method == "POST":
+        form = JugadorForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect("jugador_list")
+    return render(request, "liga_de_futbol/jugador_create.html", {"form": form})
+
 def estadio_list(request):
     estadios = Estadio.objects.all()
     context = {"object_list": estadios}
@@ -67,6 +89,17 @@ def estadio_detail(requqest, pk: int):
     query = Estadio.objects.get(id=pk)
     context = {"object": query}
     return render(requqest, "liga_de_futbol/estadio_detail.html", context)
+
+def estadio_update(request, pk):
+    query = Estadio.objects.get(id=pk)
+    if request.method == "GET":
+        form = EstadioForm(instance=query)
+    if request.method == "POST":
+        form = EstadioForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect("estadio_list")
+    return render(request, "liga_de_futbol/estadio_create.html", {"form": form})
 
 def clasificacion(request):
     clasificacion = Equipo.objects.all().order_by('-puntos')
