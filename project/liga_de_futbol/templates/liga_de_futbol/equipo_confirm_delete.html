@@ -1,0 +1,14 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Borrar equipo
+{% endblock header %}
+
+{% block main %} 
+    <p>¿Estas seguro de que quieres borrar {{ object.nombre }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <button><a href="{% url 'equipo_list' %}">Volver</a></button>
+{% endblock main %}

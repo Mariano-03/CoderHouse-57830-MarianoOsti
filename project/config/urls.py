@@ -23,13 +23,16 @@ urlpatterns = [
     path('equipo/list/', views.equipo_list, name="equipo_list"),
     path('equipo/create/', views.equipo_create, name="equipo_create"),
     path('equipo/update/<int:pk>', views.equipo_update, name="equipo_update"),
+    path('equipo/delete/<int:pk>', views.equipo_delete, name="equipo_delete"),
     path('jugador/list/', views.jugador_list, name="jugador_list"),
     path('jugador/create/', views.jugador_create, name="jugador_create"),
     path('jugador/detail/<int:pk>', views.jugador_detail, name="jugador_detail"),
     path('jugador/update/<int:pk>', views.jugador_update, name="jugador_update"),
+    path('jugador/delete/<int:pk>', views.jugador_delete, name="jugador_delete"),
     path('estadio/list/', views.estadio_list, name="estadio_list"),
     path('estadio/create/', views.estadio_create, name="estadio_create"),
     path('estadio/detail/<int:pk>', views.estadio_detail, name="estadio_detail"),
     path('estadio/update/<int:pk>', views.estadio_update, name="estadio_update"),
+    path('estadio/delete/<int:pk>', views.estadio_delete, name="estadio_delete"),
     path('clasificacion/', views.clasificacion, name="clasificacion")
 ]

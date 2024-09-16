@@ -35,6 +35,13 @@ def equipo_update(request, pk):
             return redirect("equipo_list")
     return render(request, "liga_de_futbol/equipo_create.html", {"form": form})
 
+def equipo_delete(request, pk):
+    query = Equipo.objects.get(id=pk)
+    if request.method == 'POST':
+        query.delete()
+        return redirect("equipo_list")
+    return render(request, "liga_de_futbol/equipo_confirm_delete.html", {"object": query})
+
 def jugador_list(request):
     query = request.GET.get("q")
     if query:
@@ -70,6 +77,13 @@ def jugador_update(request, pk):
             return redirect("jugador_list")
     return render(request, "liga_de_futbol/jugador_create.html", {"form": form})
 
+def jugador_delete(request, pk):
+    query = Jugador.objects.get(id=pk)
+    if request.method == 'POST':
+        query.delete()
+        return redirect("jugador_list")
+    return render(request, "liga_de_futbol/jugador_confirm_delete.html", {"object": query})
+
 def estadio_list(request):
     estadios = Estadio.objects.all()
     context = {"object_list": estadios}
@@ -100,6 +114,13 @@ def estadio_update(request, pk):
             form.save()
             return redirect("estadio_list")
     return render(request, "liga_de_futbol/estadio_create.html", {"form": form})
+
+def estadio_delete(request, pk):
+    query = Estadio.objects.get(id=pk)
+    if request.method == 'POST':
+        query.delete()
+        return redirect("estadio_list")
+    return render(request, "liga_de_futbol/estadio_confirm_delete.html", {"object": query})
 
 def clasificacion(request):
     clasificacion = Equipo.objects.all().order_by('-puntos')

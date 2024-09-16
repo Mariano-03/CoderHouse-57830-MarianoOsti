@@ -1,0 +1,14 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Borrar estadio
+{% endblock header %}
+
+{% block main %} 
+    <p>¿Estas seguro de que quieres borrar {{ object.apellido }}, {{ object.nombre }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <button><a href="{% url 'jugador_list' %}">Volver</a></button>
+{% endblock main %}
