@@ -4,7 +4,7 @@
     <button><a href="{% url 'jugador_list' %}"> Jugadores</a></button>    
     <button><a href="{% url 'estadio_list' %}"> Estadios</a></button> 
     <button><a href="{% url 'clasificacion' %}"> clasificacion</a></button> 
-    <button><a href="#">{{ user.username }}</a></button>
+    <button><a href="{% url 'profile' %}">{{ user.username }}</a></button>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Logout</button>

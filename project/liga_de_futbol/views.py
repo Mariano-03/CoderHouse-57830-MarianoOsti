@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import Equipo, Jugador, Estadio
-from .forms import EquipoForm, JugadorForm, EstadioForm, CustomUserCreationForm
+from .forms import EquipoForm, JugadorForm, EstadioForm, CustomUserCreationForm, UserProfileForm
 
 def index(request):
     return render(request, "liga_de_futbol/index.html")
@@ -133,3 +135,12 @@ class Register(CreateView):
     form_class = CustomUserCreationForm
     template_name = "liga_de_futbol/register.html"
     success_url = reverse_lazy("login")
+
+class Profile(LoginRequiredMixin, UpdateView):
+    model = User 
+    form_class = UserProfileForm
+    template_name = 'liga_de_futbol/profile.html'
+    success_url = reverse_lazy('index')
+
+    def get_object(self):
+        return self.request.user

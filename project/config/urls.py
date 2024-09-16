@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.decorators import login_required
 from liga_de_futbol import views
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,19 +25,20 @@ urlpatterns = [
     path('login', LoginView.as_view(template_name="liga_de_futbol/login.html"), name="login"),
     path('logout', LogoutView.as_view(template_name="liga_de_futbol/logout.html"), name="logout"),
     path('register', views.Register.as_view(), name="register"),
-    path('equipo/list/', views.equipo_list, name="equipo_list"),
-    path('equipo/create/', views.equipo_create, name="equipo_create"),
-    path('equipo/update/<int:pk>', views.equipo_update, name="equipo_update"),
-    path('equipo/delete/<int:pk>', views.equipo_delete, name="equipo_delete"),
-    path('jugador/list/', views.jugador_list, name="jugador_list"),
-    path('jugador/create/', views.jugador_create, name="jugador_create"),
-    path('jugador/detail/<int:pk>', views.jugador_detail, name="jugador_detail"),
-    path('jugador/update/<int:pk>', views.jugador_update, name="jugador_update"),
-    path('jugador/delete/<int:pk>', views.jugador_delete, name="jugador_delete"),
-    path('estadio/list/', views.estadio_list, name="estadio_list"),
-    path('estadio/create/', views.estadio_create, name="estadio_create"),
-    path('estadio/detail/<int:pk>', views.estadio_detail, name="estadio_detail"),
-    path('estadio/update/<int:pk>', views.estadio_update, name="estadio_update"),
-    path('estadio/delete/<int:pk>', views.estadio_delete, name="estadio_delete"),
-    path('clasificacion/', views.clasificacion, name="clasificacion")
+    path('profile', views.Profile.as_view(), name="profile"),
+    path('equipo/list/', login_required(views.equipo_list), name="equipo_list"),
+    path('equipo/create/', login_required(views.equipo_create), name="equipo_create"),
+    path('equipo/update/<int:pk>', login_required(views.equipo_update), name="equipo_update"),
+    path('equipo/delete/<int:pk>', login_required(views.equipo_delete), name="equipo_delete"),
+    path('jugador/list/', login_required(views.jugador_list), name="jugador_list"),
+    path('jugador/create/', login_required(views.jugador_create), name="jugador_create"),
+    path('jugador/detail/<int:pk>', login_required(views.jugador_detail), name="jugador_detail"),
+    path('jugador/update/<int:pk>', login_required(views.jugador_update), name="jugador_update"),
+    path('jugador/delete/<int:pk>', login_required(views.jugador_delete), name="jugador_delete"),
+    path('estadio/list/', login_required(views.estadio_list), name="estadio_list"),
+    path('estadio/create/', login_required(views.estadio_create), name="estadio_create"),
+    path('estadio/detail/<int:pk>', login_required(views.estadio_detail), name="estadio_detail"),
+    path('estadio/update/<int:pk>', login_required(views.estadio_update), name="estadio_update"),
+    path('estadio/delete/<int:pk>', login_required(views.estadio_delete), name="estadio_delete"),
+    path('clasificacion/', login_required(views.clasificacion), name="clasificacion")
 ]
