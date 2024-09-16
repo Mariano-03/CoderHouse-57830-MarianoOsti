@@ -1,0 +1,10 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Logout
+{% endblock header %}
+
+{% block main %} 
+    <p>Has cerrado sesion</p>
+    <button type="submit"><a href="{% url 'index' %}">OK</a></button>
+{% endblock main %}

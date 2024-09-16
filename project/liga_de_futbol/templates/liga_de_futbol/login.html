@@ -1,0 +1,14 @@
+{% extends 'liga_de_futbol/base.html' %}
+
+{% block header %}
+    Login
+{% endblock header %}
+
+{% block main %} 
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar Sesion</button>
+    </form>
+    <p>¿No tienes una cuenta? <a href="{% url 'register' %}">Registrarse Aqui</a></p>
+{% endblock main %}

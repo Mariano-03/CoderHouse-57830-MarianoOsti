@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Equipo, Jugador, Estadio, Clasificacion
-from .forms import EquipoForm, JugadorForm, EstadioForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from .models import Equipo, Jugador, Estadio
+from .forms import EquipoForm, JugadorForm, EstadioForm, CustomUserCreationForm
 
 def index(request):
     return render(request, "liga_de_futbol/index.html")
@@ -126,3 +128,8 @@ def clasificacion(request):
     clasificacion = Equipo.objects.all().order_by('-puntos')
     context = {"object_list": clasificacion}
     return render(request, "liga_de_futbol/clasificacion.html", context)
+
+class Register(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = "liga_de_futbol/register.html"
+    success_url = reverse_lazy("login")
