@@ -9,6 +9,9 @@ from .forms import EquipoForm, JugadorForm, EstadioForm, CustomUserCreationForm,
 def index(request):
     return render(request, "liga_de_futbol/index.html")
 
+def about(request):
+    return render(request, "liga_de_futbol/about.html")
+
 def equipo_list(request):
     query = request.GET.get("q")
     if query:

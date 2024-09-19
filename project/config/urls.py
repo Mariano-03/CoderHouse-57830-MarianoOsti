@@ -29,6 +29,7 @@ urlpatterns = [
     path('logout', LogoutView.as_view(template_name="liga_de_futbol/logout.html"), name="logout"),
     path('register', views.Register.as_view(), name="register"),
     path('profile', views.Profile.as_view(), name="profile"),
+    path('about', views.about, name="about"),
     path('equipo/list/', login_required(views.equipo_list), name="equipo_list"),
     path('equipo/create/', login_required(views.equipo_create), name="equipo_create"),
     path('equipo/update/<int:pk>', login_required(views.equipo_update), name="equipo_update"),

@@ -11,6 +11,7 @@
         <img src="{% static 'liga_de_futbol/img/perfil.png' %}" alt="avatar" height="30px;">
     {% endif %}
     <button><a href="{% url 'profile' %}">{{ user.username }}</a></button>
+    <button><a href="{% url 'about' %}">Información</a></button>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Logout</button>
