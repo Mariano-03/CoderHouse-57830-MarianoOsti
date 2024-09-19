@@ -1,9 +1,15 @@
+{% load static %}
 <button><a href="{% url 'index' %}"> Home</a></button>    
 {% if user.is_authenticated %}
     <button><a href="{% url 'equipo_list' %}"> Equipos</a></button>    
     <button><a href="{% url 'jugador_list' %}"> Jugadores</a></button>    
     <button><a href="{% url 'estadio_list' %}"> Estadios</a></button> 
     <button><a href="{% url 'clasificacion' %}"> clasificacion</a></button> 
+    {% if user.usuario.avatar %}
+        <img src="{{ user.usuario.avatar.url }}" alt="avatar" height="30px;">
+    {% else %}
+        <img src="{% static 'liga_de_futbol/img/perfil.png' %}" alt="avatar" height="30px;">
+    {% endif %}
     <button><a href="{% url 'profile' %}">{{ user.username }}</a></button>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}

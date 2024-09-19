@@ -128,3 +128,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
+
+# MEDIA_ROOT indica la ruta donde se almacenan los archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# MEDIA_URL indica la url desde donde se podra acceder a los archivos multimedia
+MEDIA_URL = "/media/"

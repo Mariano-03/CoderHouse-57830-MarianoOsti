@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Equipo, Jugador, Estadio, Clasificacion
+from .models import Equipo, Jugador, Estadio, Clasificacion, UsuarioPremium
 
 @admin.register(Equipo)
 class EquipoAdmin(admin.ModelAdmin):
@@ -24,3 +24,5 @@ class ClasificacionAdmin(admin.ModelAdmin):
     list_display = ('equipo__nombre', 'equipo__puntos')
     search_fields = ('equipo__nombre',)
     ordering = ('-equipo__puntos', 'equipo__nombre')
+
+admin.site.register(UsuarioPremium)

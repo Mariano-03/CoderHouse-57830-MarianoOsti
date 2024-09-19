@@ -19,6 +19,9 @@ from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 from liga_de_futbol import views
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
@@ -42,3 +45,6 @@ urlpatterns = [
     path('estadio/delete/<int:pk>', login_required(views.estadio_delete), name="estadio_delete"),
     path('clasificacion/', login_required(views.clasificacion), name="clasificacion")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
