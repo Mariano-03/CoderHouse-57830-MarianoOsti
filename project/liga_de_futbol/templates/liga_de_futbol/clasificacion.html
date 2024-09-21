@@ -8,5 +8,5 @@
     {% for object in object_list %}
         <p>{{ object.nombre }} - {{object.puntos}} puntos</p>
     {% endfor %}
-    <button><a href="{% url 'index' %}">Volver</a></button>
+    <a href="{% url 'index' %}"><button>Volver</button></a>
 {% endblock main %}

@@ -5,7 +5,7 @@
 {% endblock header %}
 
 {% block main %}  
-    <button><a href="{% url 'equipo_create' %}"> Crear Equipo</a></button>
+    <a href="{% url 'equipo_create' %}"><button>Crear Equipo</button></a>
     <form action="{% url 'equipo_list' %}" method="get">
         <input type="text" name="q" placeholder="Buscar...">
         <button type="submit">Buscar</button>
@@ -18,5 +18,5 @@
         </li>
 
     {% endfor %}
-    <button><a href="{% url 'index' %}">Volver</a></button>
+    <a href="{% url 'index' %}"><button>Volver</button></a>
 {% endblock main %}

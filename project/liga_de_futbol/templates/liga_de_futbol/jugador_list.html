@@ -5,7 +5,7 @@
 {% endblock header %}
 
 {% block main %}  
-    <button><a href="{% url 'jugador_create' %}">Crear Jugador</a></button>
+    <a href="{% url 'jugador_create' %}"><button>Crear Jugador</button></a>
     <form action="{% url 'jugador_list' %}" method="get">
         <input type="text" name="q" placeholder="Buscar...">
         <button type="submit">Buscar</button>
@@ -18,5 +18,5 @@
             <a href="{% url 'jugador_delete' object.id %}">Borrar</a>
         </li>
     {% endfor %}
-    <button><a href="{% url 'index' %}">Volver</a></button>
+    <a href="{% url 'index' %}"><button>Volver</button></a>
 {% endblock main %}

@@ -10,5 +10,5 @@
         {% csrf_token %}
         <button type="submit">Confirmar</button>
     </form>
-    <button><a href="{% url 'jugador_list' %}">Volver</a></button>
+    <a href="{% url 'jugador_list' %}"><button>Volver</button></a>
 {% endblock main %}
