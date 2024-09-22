@@ -1,9 +1,14 @@
-# Tercera-pre-entrega-MarianoOsti
+# Proyecto final 
 Alumno: Mariano Osti
 
 Aplicacion web creada con la idea de simular una liga de futbol.
 
 La aplicacion web consta con:
+
+# Link del video mostrando la pagina
+Video hecho sin microfono (trato de explicar las partes con texto)
+
+https://youtu.be/q-Tl8bAMmCs
 
 # Models
 - Equipos: solicita un nombre y la cantidad de puntos que haya hecho el equipo en la liga.
